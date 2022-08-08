@@ -10,7 +10,7 @@ terraform {
 # Configure the AWS provider
 
 provider "aws" {
-    region = "us-east-2"
+    region = "us-east-1"
 }
 
 
@@ -71,7 +71,7 @@ resource "aws_security_group" "MyLab_Sec_Group" {
       to_port = 0
       protocol = "-1"
       cidr_blocks = ["0.0.0.0/0"]
-  } 
+  }
 
   tags = {
       Name = "allow traffic"
@@ -110,7 +110,7 @@ resource "aws_instance" "DemoResource" {
   vpc_security_group_ids = [aws_security_group.MyLab_Sec_Group.id]
   subnet_id = aws_subnet.MyLab-Subnet1.id
   associate_public_ip_address = true
-  
+
   tags = {
     Name = "DemoResource"
   }
