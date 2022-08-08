@@ -100,18 +100,18 @@ resource "aws_route_table_association" "MyLab_Assn" {
     route_table_id = aws_route_table.MyLab_RouteTable.id
 }
 
+# Create an AWS EC2 Instance to host Docker
 
-# Create an AWS EC2 Instance
-
-resource "aws_instance" "DemoResource" {
+resource "aws_instance" "Docker" {
   ami           = var.ami
   instance_type = var.instance_type
   key_name = "Jenkins-renew"
   vpc_security_group_ids = [aws_security_group.MyLab_Sec_Group.id]
   subnet_id = aws_subnet.MyLab-Subnet1.id
   associate_public_ip_address = true
+  user_data = file("./installdocker.sh")
 
   tags = {
-    Name = "DemoResource"
+    Name = "Docker-Server"
   }
 }
