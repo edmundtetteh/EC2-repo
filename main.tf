@@ -106,7 +106,7 @@ resource "aws_route_table_association" "MyLab_Assn" {
 resource "aws_instance" "DemoResource" {
   ami           = var.ami
   instance_type = var.instance_type
-  key_name = "EC2"
+  key_name = "Jenkins-renew"
   vpc_security_group_ids = [aws_security_group.MyLab_Sec_Group.id]
   subnet_id = aws_subnet.MyLab-Subnet1.id
   associate_public_ip_address = true
