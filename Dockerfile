@@ -1,5 +1,5 @@
 # get bare minimum linux image
-FROM node:alpine 
+FROM node:10.14.0 
 
 # Define working directory
 WORKDIR /usr/src/app
