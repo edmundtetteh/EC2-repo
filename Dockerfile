@@ -2,10 +2,10 @@
 FROM node:alpine
 
 # Define working directory
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copy package.json file to our app dir in container
-COPY package*.json /app
+COPY package*.json ./
 
 # Install our dependencies
 RUN npm install
